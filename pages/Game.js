@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
 import { StyleSheet, View } from 'react-native';
-import { Button,Layout, Text } from '@ui-kitten/components';
+import { Button, Layout, Text } from '@ui-kitten/components';
 import AlertComponent from '../components/AlertComponent';
 import Question from '../components/Question';
+import { Audio } from 'expo-av';
 
+    
 export default class Game extends Component {
     constructor(props) {
 
@@ -102,10 +104,25 @@ export default class Game extends Component {
         this.setState({ questions: shuffled });
 
     }
+    playTrueSound = async () => {
+        let trueSound = await Audio.Sound.createAsync(require('../assets/Music/true.mp3'));
+        await trueSound.sound.playAsync();
+    }
+
+    playFalseSound = async () => {
+        let falseSound = await Audio.Sound.createAsync(require('../assets/Music/false.mp3'));
+        await falseSound.sound.playAsync();
+    }
+  
     questionResult = (result) => {
 
-        if (result.result == true)
+        if (result.result == true) {
             this.setState({ score: this.state.score + 1 })
+            this.playTrueSound();       
+        } else {
+            this.playFalseSound();
+        }
+        
         this.setState({ modalShow: true, modalStatus: (result.result == true) ? "success" : "danger" });
 
         setTimeout(() => {

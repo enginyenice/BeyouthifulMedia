@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
 
     container: {
         flex: 1,
-        justifyContent: 'center',
+        justifyContent: 'space-evenly',
     },
     header: {
         flex: 1,
@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
         paddingTop: 10
     },
     footer: {
-        flex: 0.35,
+        flex: 0.45,
     },
     playButton: {
         flex: 1,

@@ -103,16 +103,16 @@ const styles = StyleSheet.create({
     },
     falseButton: {
         borderRadius: 10,
-        height: 200,
-        width: 200,
+        height: win.width/2.5,
+        width: win.width/2.5,
         backgroundColor: '#dc3545',
         alignItems: 'center',
         justifyContent: 'center'
     },
     trueButton: {
         borderRadius: 10,
-        height: 200,
-        width: 200,
+        height: win.width/2.5,
+        width: win.width/2.5,
         backgroundColor: '#28a745',
         alignItems: 'center',
         justifyContent: 'center'
