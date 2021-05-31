@@ -16,9 +16,9 @@ export default class App extends Component {
     return (
       <ApplicationProvider {...eva} theme={eva.light}>
                         <StatusBar
-                    animated={true}
-                    barStyle='dark-content'
-                    showHideTransition='fade'
+                    // animated={true}
+                    // barStyle='default'
+                    showHideTransition='none'
                 />
         <View style={styles.container}>
           {this.state.play == false &&
