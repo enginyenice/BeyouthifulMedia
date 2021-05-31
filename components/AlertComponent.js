@@ -6,28 +6,32 @@ export default class AlertComponent extends Component {
     constructor(props){
         
         super(props);
-        console.log(this.props.status);
         this.state = {
-            data: this.props.status,
+            status: this.props.status,
             successMessage:"Great!",
             dangerMessage:"Wrong answer!",
         }
     }
     render() {
         return (
+            <>
             <View style={[styles.alertModalView]}>
-                <View style={[styles.alertModal,(this.state.data == "success")? styles.success:styles.danger]}>
+                <View style={[styles.alertModal,(this.state.status == "success")? styles.success:styles.danger]}>
                     <Text style={styles.alertText}>
-                        {this.state.data == "success" && (this.state.successMessage)}
-                        {this.state.data == "danger" && (this.state.dangerMessage)}
+                        {this.state.status == "success" && (this.state.successMessage)}
+                        {this.state.status == "danger" && (this.state.dangerMessage)}
                     </Text>
                 </View>
             </View>
+            </>
+
+            
         )
     }
 }
 const styles = StyleSheet.create({
     alertModalView: {
+        
         alignItems: 'center',
         backgroundColor: 'rgba(52, 52, 52, 0.9)',
         width: win.width,

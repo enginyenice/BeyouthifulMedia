@@ -5,7 +5,7 @@ import { Button,Text} from '@ui-kitten/components';
 export default class Home extends Component {
 
     handleLangChange = () => {
-        this.props.onPlay(true);
+        this.props.onSelectedScreen("Game");
     }
 
     render() {
@@ -54,7 +54,6 @@ const styles = StyleSheet.create({
     },
     header: {
         flex: 1,
-        // backgroundColor: "red",
         paddingTop: 10
     },
     button: {
@@ -76,7 +75,6 @@ const styles = StyleSheet.create({
     },
     footer: {
         flex: 0.35,
-        // backgroundColor: "pink",
     },
     playButton: {
         flex: 1,

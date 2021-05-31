@@ -7,26 +7,26 @@ import Game from './pages/Game';
 
 export default class App extends Component {
   state = {
-    play: true
+    selectedScreen: "Home"
   }
-  onPlay = (langValue) => {
-    this.setState({ play: langValue })
+  onSelectedScreen = (params) => {
+    this.setState({ selectedScreen: params })
   }
   render() {
     return (
       <ApplicationProvider {...eva} theme={eva.light}>
                         <StatusBar
-                    // animated={true}
-                    // barStyle='default'
+                    animated={true}
+                    barStyle='default'
                     showHideTransition='none'
                 />
         <View style={styles.container}>
-          {this.state.play == false &&
-            <Home onPlay={this.onPlay}></Home>
+          {this.state.selectedScreen == "Home" &&
+            <Home onSelectedScreen={this.onSelectedScreen}></Home>
           }
           {
-            this.state.play == true &&
-            <Game></Game>
+            this.state.selectedScreen == "Game" &&
+            <Game onSelectedScreen={this.onSelectedScreen}></Game>
           }
         </View>
       </ApplicationProvider>
