@@ -5,22 +5,6 @@ const win = Dimensions.get('window');
 const ratio = win.width/640;
 export default class Game extends Component {
 
-    modal = () => {
-
-        return (
-            <Modal
-        visible={visible}
-        backdropStyle={styles.backdrop}
-        onBackdropPress={() => setVisible(false)}>
-        <Card disabled={true}>
-          <Text>Welcome to UI Kitten 😻</Text>
-          <Button onPress={() => setVisible(false)}>
-            DISMISS
-          </Button>
-        </Card>
-      </Modal>
-        )
-    }
     render() {
         return (
             <Layout style={styles.container} level='1'>

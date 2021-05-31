@@ -1,16 +1,35 @@
 import React, { Component } from 'react'
-import { Text, StyleSheet, View } from 'react-native'
+import { StyleSheet, View ,StatusBar} from 'react-native'
+import * as eva from '@eva-design/eva';
+import { ApplicationProvider } from '@ui-kitten/components';
 import Home from './pages/Home'
+import Game from './pages/Game';
 
 export default class App extends Component {
+  state = {
+    play: true
+  }
   onPlay = (langValue) => {
-    console.log(langValue)
+    this.setState({ play: langValue })
   }
   render() {
     return (
-      <View style={styles.container}>
-        <Home onPlay={this.onPlay}></Home>
-      </View>
+      <ApplicationProvider {...eva} theme={eva.light}>
+                        <StatusBar
+                    animated={true}
+                    barStyle='dark-content'
+                    showHideTransition='fade'
+                />
+        <View style={styles.container}>
+          {this.state.play == false &&
+            <Home onPlay={this.onPlay}></Home>
+          }
+          {
+            this.state.play == true &&
+            <Game></Game>
+          }
+        </View>
+      </ApplicationProvider>
     )
   }
 }
@@ -19,7 +38,6 @@ export default class App extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
     flexDirection: "row"
   },
 });

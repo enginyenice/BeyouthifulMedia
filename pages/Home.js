@@ -1,6 +1,7 @@
-import React, { Component,useState } from 'react'
+import React, { Component, useState } from 'react'
 
-import { Text, StyleSheet, View, StatusBar, Image, SafeAreaView, TouchableOpacity } from 'react-native'
+import {StyleSheet, View, Image, SafeAreaView, TouchableOpacity } from 'react-native'
+import { Button,Text} from '@ui-kitten/components';
 export default class Home extends Component {
 
     handleLangChange = () => {
@@ -10,13 +11,6 @@ export default class Home extends Component {
     render() {
         return (
             <SafeAreaView style={styles.container}>
-                <StatusBar
-                    animated={true}
-                    backgroundColor="#fff5fd"
-                    barStyle='dark-content'
-                    showHideTransition='fade'
-                />
-
                 <View style={styles.header}>
                     <View style={styles.baseLogo}>
                         <Image
@@ -26,17 +20,11 @@ export default class Home extends Component {
                     </View>
                 </View>
                 <View style={styles.mid}>
-                    <View style={styles.playButton}>
-                        <Text style={{ fontSize: 20, textAlign: 'center', color: '#022e57' }}>The fox symbolizes fake news and the owl symbolizes true news</Text>
-                    </View>
-                    <View style={styles.playButton}>
-                        <TouchableOpacity
-                            style={styles.button} 
-                            onPress={this.handleLangChange}
-                            >
-                            <Text style={{ color: "#fff5fd", fontSize: 28 }} >Play</Text>
-                        </TouchableOpacity>
-                    </View>
+                        <Text status='primary' style={{ fontSize: 20, textAlign: 'center'}}>The fox symbolizes fake news and the owl symbolizes true news</Text>
+                        <Button style={styles.button} status='primary' onPress={this.handleLangChange}>
+                        PLAY
+                    </Button>
+                   
 
 
                 </View>
@@ -63,7 +51,6 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: 'center',
-        backgroundColor: '#fff5fd'
     },
     header: {
         flex: 1,
@@ -73,7 +60,6 @@ const styles = StyleSheet.create({
     button: {
         alignItems: "center",
         width: 200,
-        backgroundColor: "#022e57",
         padding: 10
     },
     baseLogo: {
@@ -84,7 +70,8 @@ const styles = StyleSheet.create({
     },
     mid: {
         flex: 1,
-        // backgroundColor: "blue",
+        justifyContent:'space-evenly',
+        alignItems:'center',
         paddingTop: 10
     },
     footer: {
