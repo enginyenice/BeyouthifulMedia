@@ -1,16 +1,20 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
-import Home from './pages/Home';
+import React, { Component } from 'react'
+import { Text, StyleSheet, View } from 'react-native'
+import Home from './pages/Home'
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-        <Home></Home>
-        <StatusBar style="auto" />
+export default class App extends Component {
+  onPlay = (langValue) => {
+    console.log(langValue)
+  }
+  render() {
+    return (
+      <View style={styles.container}>
+        <Home onPlay={this.onPlay}></Home>
       </View>
-  );
+    )
+  }
 }
+
 
 const styles = StyleSheet.create({
   container: {
@@ -19,3 +23,4 @@ const styles = StyleSheet.create({
     flexDirection: "row"
   },
 });
+

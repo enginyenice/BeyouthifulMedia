@@ -1,14 +1,19 @@
-import React, { Component } from 'react'
-import { Text, StyleSheet, View, StatusBar, Image, SafeAreaView,TouchableOpacity } from 'react-native'
+import React, { Component,useState } from 'react'
 
+import { Text, StyleSheet, View, StatusBar, Image, SafeAreaView, TouchableOpacity } from 'react-native'
 export default class Home extends Component {
+
+    handleLangChange = () => {
+        this.props.onPlay(true);
+    }
+
     render() {
         return (
             <SafeAreaView style={styles.container}>
                 <StatusBar
                     animated={true}
                     backgroundColor="#fff5fd"
-                    barStyle='light-content'
+                    barStyle='dark-content'
                     showHideTransition='fade'
                 />
 
@@ -22,17 +27,15 @@ export default class Home extends Component {
                 </View>
                 <View style={styles.mid}>
                     <View style={styles.playButton}>
-                    <Text style={{fontSize:20,textAlign:'center',color:'#022e57'}}>The fox symbolizes fake news and the owl symbolizes true news</Text>
+                        <Text style={{ fontSize: 20, textAlign: 'center', color: '#022e57' }}>The fox symbolizes fake news and the owl symbolizes true news</Text>
                     </View>
                     <View style={styles.playButton}>
                         <TouchableOpacity
-                            style={styles.button}
-                            
-                        >
-                            <Text style={{color:"#fff5fd",fontSize:28}} >Play</Text>
+                            style={styles.button} 
+                            onPress={this.handleLangChange}
+                            >
+                            <Text style={{ color: "#fff5fd", fontSize: 28 }} >Play</Text>
                         </TouchableOpacity>
-
-                       
                     </View>
 
 
@@ -69,10 +72,10 @@ const styles = StyleSheet.create({
     },
     button: {
         alignItems: "center",
-        width:200,
+        width: 200,
         backgroundColor: "#022e57",
         padding: 10
-      },
+    },
     baseLogo: {
         flex: 1,
         justifyContent: 'center',
@@ -90,15 +93,15 @@ const styles = StyleSheet.create({
     },
     playButton: {
         flex: 1,
-        justifyContent:'center',
-        textAlign:'center',
-        alignItems:'center'
+        justifyContent: 'center',
+        textAlign: 'center',
+        alignItems: 'center'
     },
     sponsor: {
         paddingTop: 10,
         flex: 1,
         flexDirection: 'row',
-        justifyContent: 'space-between'
+        justifyContent: 'space-around'
 
     },
     textStyle: {
