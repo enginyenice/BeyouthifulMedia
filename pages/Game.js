@@ -124,7 +124,7 @@ export default class Game extends Component {
         }
         
         this.setState({ modalShow: true, modalStatus: (result.result == true) ? "success" : "danger" });
-
++
         setTimeout(() => {
             this.setState({ modalShow: false })
 
@@ -158,7 +158,7 @@ export default class Game extends Component {
     render() {
         return (
             <Layout style={styles.container} level='1'>
-                <Text category='h1' style={{ textAlign: 'center' }}>eTwinning</Text>
+                <Text category='h1' style={{ textAlign: 'center' }}>FAKES OUT!</Text>
 
                 {this.state.questions != null && this.state.gameOver == false && this.getQuestion(this.state.questions[this.state.selectedQuestion])}
                 {this.state.modalShow == true && (<AlertComponent status={this.state.modalStatus}></AlertComponent>)}

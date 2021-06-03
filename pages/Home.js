@@ -13,10 +13,11 @@ export default class Home extends Component {
             <SafeAreaView style={styles.container}>
                 <View style={styles.header}>
                     <View style={styles.baseLogo}>
-                        <Image
+                        {/* <Image
                             source={require('../assets/logo1.png')}
                             style={{ width: 300, height: 250, resizeMode: 'contain' }}
-                        />
+                        /> */}
+                        <Text style={styles.LogoText} status='primary'>FAKES OUT!</Text>
                     </View>
                 </View>
                 <View style={styles.mid}>
@@ -92,5 +93,8 @@ const styles = StyleSheet.create({
     textStyle: {
         textAlign: 'center',
         marginBottom: 8
+    },
+    LogoText:{
+        fontSize:70
     }
 });
